@@ -8,12 +8,18 @@ in
     [
       (import "${home-manager}/nixos")
     ];
-
-home-manager.useUserPackages = true;
-home-manager.useGlobalPkgs = true;
+  programs.zsh.enable = true;
+  users.users.hrli = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
+    initialPassword = "pw123";
+  };
+  home-manager.useUserPackages = true;
+  home-manager.useGlobalPkgs = true;
   home-manager.users.hrli = { pkgs, ... }: {
-  
-    imports =[./home.nix];
+
+    imports = [ ./home.nix ];
     # The state version is required and should stay at the version you
     # originally installed.
     home.stateVersion = "25.05";

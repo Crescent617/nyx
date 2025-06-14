@@ -76,12 +76,15 @@ in
     # Document & Content Tools
     zk # A CLI for Zettelkasten note taking
     glow # Render markdown on the CLI, with pizzazz!
+    goose-cli # AI cli agent
     chafa # Image-to-text converter supporting ANSI, ASCII and HTML
 
     # Development Tools
     # superfile # A command-line tool to manage and manipulate files
     just # A handy way to save and run project-specific commands
     ast-grep
+    rustup
+    go
   ];
 
   home.sessionVariables = {
