@@ -1,0 +1,1 @@
+# nyx - my nixos config
