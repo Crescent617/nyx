@@ -17,8 +17,10 @@
     clang
     nodejs
     python3
+    gnumake
   ];
+
   services.openssh.enable = true;
   services.avahi.enable = true;
-
+  # services.tailscale.enable = true;
 }
