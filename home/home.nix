@@ -1,10 +1,8 @@
 { config, pkgs, fonts, lib, ... }:
 
-let
-  inherit (pkgs.stdenv.hostPlatform) isLinux;
-in
+let inherit (pkgs.stdenv.hostPlatform) isLinux;
 
-{
+in {
   home.packages = with pkgs; [
     # Terminal Utilities
     unzip
@@ -89,16 +87,14 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     PATH = "$HOME/.local/bin:$HOME/my-busybox/bin:$PATH";
-    GOPROXY = lib.mkDefault "https://goproxy.cn"; # use mkDefault to set overridable value
-    FZF_DEFAULT_OPTS = " \
-      --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-      --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-      --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
-      --color=selected-bg:#45475a \
-      --multi";
+    # use mkDefault to set overridable value
+    GOPROXY = lib.mkDefault "https://goproxy.cn";
+    FZF_DEFAULT_OPTS =
+      "--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 --color=selected-bg:#45475a --multi";
     RUSTUP_UPDATE_ROOT = "https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup";
     RUSTUP_DIST_SERVER = "https://mirrors.tuna.tsinghua.edu.cn/rustup";
-    WEBKIT_DISABLE_DMABUF_RENDERER = "1"; # fix: https://github.com/tauri-apps/tauri/issues/7910
+    # fix: https://github.com/tauri-apps/tauri/issues/7910
+    WEBKIT_DISABLE_DMABUF_RENDERER = "1";
     UV_DEFAULT_INDEX = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple";
     ZK_NOTEBOOK_DIR = "$HOME/notes";
     GOOSE_DISABLE_KEYRING = 1;
@@ -113,7 +109,8 @@ in
         v = "nvim";
         j = "z";
         rm = "gomi";
-        lazypodman = "DOCKER_HOST=unix:///run/user/1000/podman/podman.sock lazydocker";
+        lazypodman =
+          "DOCKER_HOST=unix:///run/user/1000/podman/podman.sock lazydocker";
         lg = "lazygit";
         gmt = "go mod tidy";
         icat = "kitty +icat";
@@ -126,7 +123,8 @@ in
         ypush = "yadm push";
         ypull = "yadm pull";
         ylog = "yadm log --oneline --graph --decorate --all";
-        lazyyadm = "lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME";
+        lazyyadm =
+          "lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME";
         log = "/usr/bin/log";
       };
       defaultKeymap = "emacs";

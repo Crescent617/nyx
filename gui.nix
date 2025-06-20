@@ -1,12 +1,8 @@
 { config, pkgs, lib, ... }:
 
-let
-  cfg = config.nyx.gui;
-in
-{
-  options = {
-    nyx.gui.enable = lib.mkEnableOption "Enable nyx configuration";
-  };
+let cfg = config.nyx.gui;
+in {
+  options = { nyx.gui.enable = lib.mkEnableOption "Enable nyx configuration"; };
   config = lib.mkIf cfg.enable {
     services.xserver.enable = true;
     services.xserver.displayManager.gdm.enable = true;
