@@ -18,9 +18,11 @@
     nodejs
     python3
     gnumake
+    podman
   ];
 
   services.openssh.enable = true;
   services.avahi.enable = true;
   # services.tailscale.enable = true;
+  programs.nix-ld.enable = true;
 }

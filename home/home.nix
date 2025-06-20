@@ -29,6 +29,8 @@ in
     earthly # Like Dockerfile and Makefile had a baby.
     miniserve # A tiny web server for static files
     yadm
+    just # A handy way to save and run project-specific commands
+    ast-grep # A command-line tool for parsing and analyzing source code with AST
 
     # Git Tools
     lazygit
@@ -79,10 +81,7 @@ in
     goose-cli # AI cli agent
     chafa # Image-to-text converter supporting ANSI, ASCII and HTML
 
-    # Development Tools
-    # superfile # A command-line tool to manage and manipulate files
-    just # A handy way to save and run project-specific commands
-    ast-grep
+    # Lang
     rustup
     go
   ];
