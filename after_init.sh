@@ -8,8 +8,5 @@ if [[ $EUID -eq 0 ]]; then
   exit 1
 fi
 
-home_dir="$HOME"
-git clone 'https://github.com/Crescent617/my-busybox' "$home_dir/my-busybox"
-
 rustup default stable
 yadm clone 'https://github.com/Crescent617/dotfiles.git'

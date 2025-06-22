@@ -25,10 +25,10 @@
     ];
 
     services.openssh.enable = lib.mkDefault true;
-    services.avahi.enable = true;
+    services.avahi.enable = lib.mkDefault true;
     # services.tailscale.enable = true;
 
     # nix-ld: Nix-based dynamic linker
-    programs.nix-ld.enable = true;
+    programs.nix-ld.enable = lib.mkDefault true;
   };
 }
