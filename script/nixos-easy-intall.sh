@@ -28,19 +28,18 @@ boot_device="${device}1"
 root_device="${device}2"
 
 # ==== Partitioning the disk ====
-# TODO: test partition
 # dos partition table for BIOS systems
-sudo parted "$device" --script -- \
+sudo parted -s "$device" \
   mklabel msdos \
-  mkpart primary ext4 1MiB 501MiB \
-  mkpart primary ext4 501MiB 100%
+  mkpart primary ext4 1MiB 512MiB \
+  mkpart primary ext4 512MiB 100%
 
 # # gpt partition table for UEFI systems
-# sudo parted /dev/sdX --script -- \
-#   mklabel gpt \
-#   mkpart ESP fat32 1MiB 501MiB \
-#   set 1 esp on \
-#   mkpart primary ext4 501MiB 100%
+sudo parted -s "$device" \
+  mklabel gpt \
+  mkpart primary fat32 1MiB 512MiB \
+  set 1 esp on \
+  mkpart primary ext4 512MiB 100%
 
 sudo mkfs.fat -F 32 "$boot_device"
 sudo fatlabel "$boot_device" NIXBOOT

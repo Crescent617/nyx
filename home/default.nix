@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz";
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   cfg = config.nyx;
 in
 {
@@ -11,8 +11,11 @@ in
   options = {
     nyx.userName = lib.mkOption {
       type = lib.types.str;
-      default = "hrli";
       description = "The name of the user to create.";
+    };
+    nyx.stateVersion = lib.mkOption {
+      type = lib.types.str;
+      description = "The state version of the home-manager configuration.";
     };
   };
 
@@ -28,7 +31,7 @@ in
       imports = [ ./home.nix ];
       # The state version is required and should stay at the version you
       # originally installed.
-      home.stateVersion = "25.05";
+      home.stateVersion = cfg.stateVersion;
     };
   };
 }

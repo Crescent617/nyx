@@ -7,10 +7,10 @@ in
   config = lib.mkIf cfg.enable {
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-    services.xserver.enable = false;
+    # services.xserver.enable = false;
     services.xserver.videoDrivers = [ "nvidia" ];
 
-    programs.ly.enable = true; # 登录管理器
+    services.displayManager.ly.enable = true;
     programs.niri.enable = true; # 窗口管理器
 
     nixpkgs.config.allowUnfree = true;
@@ -24,6 +24,7 @@ in
     i18n.inputMethod.type.enabled = "fcitx5";
     i18n.inputMethod.fcitx5.addons = with pkgs; [ fcitx5-chinese-addons ];
 
+    programs.firefox.enable = true;
     environment.systemPackages = with pkgs; [
       kitty
       fuzzel # 启动器
