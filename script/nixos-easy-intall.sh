@@ -74,7 +74,7 @@ basic_config=$(cat <<EOF
      initialPassword = "pw123"; # Set a default password
   };
 
-  nix.settings.substituters = lib.mkForce [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+  nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
 
   networking.wireless.enable = true;
 
@@ -86,6 +86,8 @@ basic_config=$(cat <<EOF
     wget
     git
     curl
+    clang
+    gnumake
   ];
 }
 EOF)
