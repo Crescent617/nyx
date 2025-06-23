@@ -79,8 +79,13 @@ basic_config=$(cat <<EOF
   networking.wireless.enable = true;
 
   services.openssh.enable = lib.mkDefault true;
-  services.avahi.enable = lib.mkDefault true;
-
+  services.avahi = {
+    enable = lib.mkDefault true;
+    nssmdns4 = true; # 让 glibc 能解析 .local 域名
+    publish.enable = true; # 如果你想让自己这台机器也被 .local 找到
+    publish.addresses = true;
+    publish.workstation = true;
+  };
   environment.systemPackages = with pkgs; [
     vim
     wget
