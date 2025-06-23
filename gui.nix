@@ -17,7 +17,7 @@ in
     hardware.graphics.enable = true;
     hardware.nvidia = {
       modesetting.enable = true;
-      # open = true; # ✅ 显式指定使用开源驱动
+      open = true; # ✅ 显式指定使用开源驱动
       nvidiaSettings = true;
     };
 
