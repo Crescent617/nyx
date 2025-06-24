@@ -7,7 +7,7 @@ in
   config = lib.mkIf cfg.enable {
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-    # services.xserver.enable = false;
+    # services.xserver.enable = true;
     services.xserver.videoDrivers = [ "nvidia" ];
 
     services.displayManager.ly.enable = true;
@@ -62,12 +62,7 @@ in
       alsa.support32Bit = true;
     };
 
-    xdg.portal = {
-      enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
-      configPackages = [ pkgs.xdg-desktop-portal-wlr ];
-    };
-
+    security.rtkit.enable = true;
     environment.systemPackages = with pkgs; [
       clipse # 剪贴板管理器
       fuzzel # 启动器
