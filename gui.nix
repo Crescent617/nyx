@@ -67,14 +67,20 @@ in
       ghostty
       mako # 通知管理器
       noti # 通知发送器
-      pavucontrol # 音量控制
-      pamixer # 控制音量（volume 模块用）
+
+      pavucontrol # PulseAudio gui音量控制
+      pamixer # PulseAudio 命令行控制音量（volume 模块用）
+
       waybar # 状态栏
       swaybg # 背景设置
       wl-clipboard # 用于在 Wayland 上复制粘贴
       wlsunset # 夜间模式
       zed-editor
       localsend
+
+      vscode
+      wechat
+      # feishu # use web version instead
     ];
   };
 }

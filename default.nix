@@ -32,5 +32,8 @@
 
     # nix-ld: Nix-based dynamic linker
     programs.nix-ld.enable = lib.mkDefault true;
+
+    networking.firewall.allowedTCPPorts = [ 53317 ]; # localsend use 53317 port
+    networking.firewall.allowedUDPPorts = [ 53317 ];
   };
 }

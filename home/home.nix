@@ -80,6 +80,9 @@ in
     goose-cli # AI cli agent
     chafa # Image-to-text converter supporting ANSI, ASCII and HTML
 
+    # Development Tools
+    k9s
+
     # Lang
     rustup
     go
