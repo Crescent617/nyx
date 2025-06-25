@@ -120,13 +120,11 @@ in
         yss = "yadm status";
         yadd = "yadm add";
         ycmsg = "yadm commit -m";
-        ydiff = "yadm diff";
+        ydca = "yadm diff --cached";
         ypush = "yadm push";
         ypull = "yadm pull";
         ylog = "yadm log --oneline --graph --decorate --all";
-        lazyyadm =
-          "lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME";
-        log = "/usr/bin/log";
+        lazyyadm = "lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME";
       };
       defaultKeymap = "emacs";
       oh-my-zsh = {
@@ -148,7 +146,17 @@ in
     atuin.enable = true;
     starship.enable = true;
     zoxide.enable = true;
-    yazi.enable = true;
+    yazi = {
+      enable = true;
+      plugins = {
+        mount = pkgs.yaziPlugins.mount;
+      };
+      keymap = {
+        mgr.prepend_keymap = [
+          { on = "M"; run = "plugin mount"; }
+        ];
+      };
+    };
     pay-respects.enable = true;
   };
 

@@ -13,17 +13,22 @@
       curl
       git
       tmux
-      neovim
       clang
       nodejs
       python3
       gnumake
-      podman
+      efibootmgr # reboot to another OS. e.g. sudo efibootmgr -n 0000 && reboot
+      ntfs3g # for NTFS support
     ];
 
+    programs.neovim.enable = true;
+
+    services.udisks2.enable = lib.mkDefault true;
     services.openssh.enable = lib.mkDefault true;
     services.avahi.enable = lib.mkDefault true;
     services.tailscale.enable = true;
+
+    virtualisation.podman.enable = lib.mkDefault true;
 
     # nix-ld: Nix-based dynamic linker
     programs.nix-ld.enable = lib.mkDefault true;
