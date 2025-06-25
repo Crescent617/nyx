@@ -2,7 +2,8 @@
 
 let inherit (pkgs.stdenv.hostPlatform) isLinux;
 
-in {
+in
+{
   home.packages = with pkgs; [
     # Terminal Utilities
     unzip
@@ -149,5 +150,12 @@ in {
     zoxide.enable = true;
     yazi.enable = true;
     pay-respects.enable = true;
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 22;
   };
 }

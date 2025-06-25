@@ -76,7 +76,7 @@ basic_config=$(cat <<EOF
 
   nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
 
-  networking.wireless.enable = true;
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   services.openssh.enable = lib.mkDefault true;
   services.avahi = {
