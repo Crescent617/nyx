@@ -19,6 +19,8 @@
       gnumake
       efibootmgr # reboot to another OS. e.g. sudo efibootmgr -n 0000 && reboot
       ntfs3g # for NTFS support
+      uv # python package manager
+      inetutils # for ping, traceroute, etc.
     ];
 
     programs.neovim.enable = true;

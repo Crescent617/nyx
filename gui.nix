@@ -71,6 +71,7 @@ in
       pavucontrol # PulseAudio gui音量控制
       pamixer # PulseAudio 命令行控制音量（volume 模块用）
 
+      xwayland-satellite # XWayland 兼容层
       waybar # 状态栏
       swaybg # 背景设置
       wl-clipboard # 用于在 Wayland 上复制粘贴
@@ -80,6 +81,7 @@ in
 
       vscode
       wechat
+      vivaldi
       # feishu # use web version instead
     ];
   };
