@@ -93,7 +93,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    PATH = "$HOME/.local/bin:$HOME/my-busybox/bin:$PATH";
+    PATH = "$HOME/.local/bin:$HOME/my-busybox/bin:$HOME/go/bin:$PATH";
     # use mkDefault to set overridable value
     GOPROXY = lib.mkDefault "https://goproxy.cn";
     FZF_DEFAULT_OPTS =
