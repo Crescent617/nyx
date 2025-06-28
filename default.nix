@@ -3,8 +3,12 @@
 {
   imports = [
     ./home
-    ./gui.nix # disable gui by default
+    ./gui.nix
   ];
+
+  options = {
+    nyx.gui.enable = lib.mkEnableOption "Enable nyx GUI configuration";
+  };
 
   config = {
     environment.systemPackages = with pkgs; [

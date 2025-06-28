@@ -3,7 +3,6 @@
 let cfg = config.nyx.gui;
 in
 {
-  options = { nyx.gui.enable = lib.mkEnableOption "Enable nyx configuration"; };
   config = lib.mkIf cfg.enable {
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";

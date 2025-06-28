@@ -1,8 +1,5 @@
 { config, pkgs, fonts, lib, ... }:
 
-let inherit (pkgs.stdenv.hostPlatform) isLinux;
-
-in
 {
   home.packages = with pkgs; [
     # Terminal Utilities
@@ -164,12 +161,5 @@ in
       };
     };
     pay-respects.enable = true;
-  };
-
-  home.pointerCursor = lib.optionals isLinux {
-    gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Ice";
-    size = 22;
   };
 }

@@ -28,7 +28,7 @@ in
     home-manager.useUserPackages = true;
     home-manager.useGlobalPkgs = true;
     home-manager.users."${cfg.userName}" = { pkgs, ... }: {
-      imports = [ ./home.nix ];
+      imports = [ ./home.nix ] ++ lib.optional cfg.gui.enable ./home.gui.nix;
       # The state version is required and should stay at the version you
       # originally installed.
       home.stateVersion = cfg.stateVersion;
