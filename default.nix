@@ -11,6 +11,14 @@
   };
 
   config = {
+    boot.kernel.sysctl = {
+      "kernel.sysrq" = 1;
+    };
+
+    environment.sessionVariables = {
+      EDITOR = "nvim";
+    };
+
     environment.systemPackages = with pkgs; [
       vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
@@ -25,6 +33,8 @@
       ntfs3g # for NTFS support
       uv # python package manager
       inetutils # for ping, traceroute, etc.
+      pciutils
+      busybox
     ];
 
     programs.neovim.enable = true;
