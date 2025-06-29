@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
-set -x
+set -e
 
-# 如果是 system scope 且当前不是 root，则用 sudo 重新执行
-if [[ "$EUID" -ne "0" ]]; then
-  exec sudo "$0" "$@"
-fi
+export PATH=/run/current-system/sw/bin:/usr/bin:$PATH
 
 GUEST_NAME="$1"
 EVENT="$2"
@@ -15,20 +12,28 @@ guest=win11
 logfile="/tmp/qemu_hooks.log"
 
 info() {
-  echo "$(date +'%Y-%m-%d %H:%M:%S') [INFO] $1" >>"$logfile"
+  echo "$(date +'%Y-%m-%d %H:%M:%S') [INFO] $1" | tee -a "$logfile"
 }
 
-info "[QEMU Hook] guest=$GUEST_NAME event=$EVENT sub_event=$SUB_EVENT"
+info "[QEMU_HOOK_BEGIN] guest=$GUEST_NAME event=$EVENT sub_event=$SUB_EVENT"
+info "[QEMU_HOOK_USER] user=$(whoami) id=$(id -u) group=$(id -g) groups=$(id -G)"
 
 if [[ "$GUEST_NAME" == "$guest" && "$EVENT" == "prepare" && "$SUB_EVENT" == "begin" ]]; then
-  info "Preparing GPU for Passthrough"
   # Stop display manager
   systemctl stop display-manager.service
   ## Uncomment the following line if you use GDM
-  killall gdm-x-session
-  killall niri
+  killall gdm-x-session || true
+  killall niri || true
 
-  sleep 2
+  # countdown to allow the display manager to stop
+  for i in {1..20}; do
+    info "Waiting for nvidia_drm to idle... $i"
+    nv_drm_in_use=$(lsmod | awk '/^nvidia_drm/ {print $3}')
+    if [[ "$nv_drm_in_use" == "0" ]]; then
+      break
+    fi
+    sleep 1
+  done
 
   info "Rmmod Nvidia Modules"
   rmmod nvidia_drm
@@ -37,11 +42,11 @@ if [[ "$GUEST_NAME" == "$guest" && "$EVENT" == "prepare" && "$SUB_EVENT" == "beg
   rmmod nvidia
 
   # Unbind VTconsoles
-  echo 0 >/sys/class/vtconsole/vtcon0/bind
-  echo 0 >/sys/class/vtconsole/vtcon1/bind
+  echo 0 >/sys/class/vtconsole/vtcon0/bind || true
+  echo 0 >/sys/class/vtconsole/vtcon1/bind || true
 
   # Unbind EFI-Framebuffer
-  echo efi-framebuffer.0 >/sys/bus/platform/drivers/efi-framebuffer/unbind
+  echo efi-framebuffer.0 >/sys/bus/platform/drivers/efi-framebuffer/unbind || true
 
   # Avoid a Race condition by waiting 2 seconds. This can be calibrated to be shorter or longer if required for your system
   sleep 2
@@ -56,13 +61,9 @@ if [[ "$GUEST_NAME" == "$guest" && "$EVENT" == "prepare" && "$SUB_EVENT" == "beg
   # Load VFIO Kernel Module
   modprobe vfio-pci
   info "VFIO Kernel Module Loaded"
-
-  info "Finish Preparing GPU for Passthrough"
 fi
 
 if [[ "$GUEST_NAME" == "$guest" && "$EVENT" == "release" && "$SUB_EVENT" == "end" ]]; then
-  info "Releasing GPU from Passthrough"
-
   # Re-Bind GPU to Nvidia Driver
   info "Stopping VFIO Kernel Module"
   virsh nodedev-reattach pci_0000_01_00_3
@@ -78,14 +79,15 @@ if [[ "$GUEST_NAME" == "$guest" && "$EVENT" == "release" && "$SUB_EVENT" == "end
   modprobe nvidia_drm
 
   # Rebind VT consoles
-  echo 1 >/sys/class/vtconsole/vtcon0/bind
+  echo 1 >/sys/class/vtconsole/vtcon0/bind || true
   # Some machines might have more than 1 virtual console. Add a line for each corresponding VTConsole
   #echo 1 > /sys/class/vtconsole/vtcon1/bind
 
-  nvidia-xconfig --query-gpu-info >/dev/null 2>&1
-  echo "efi-framebuffer.0" >/sys/bus/platform/drivers/efi-framebuffer/bind
+  nvidia-xconfig --query-gpu-info >/dev/null 2>&1 || true
+  echo "efi-framebuffer.0" >/sys/bus/platform/drivers/efi-framebuffer/bind || true
 
   # Restart Display Manager
   systemctl start display-manager.service
-  info "Finish Releasing GPU from Passthrough"
 fi
+
+info "[QEMU_HOOK_END] guest=$GUEST_NAME event=$EVENT sub_event=$SUB_EVENT"
