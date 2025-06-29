@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -eu
 
 export PATH=/run/current-system/sw/bin:/usr/bin:$PATH
 
@@ -8,7 +8,6 @@ GUEST_NAME="$1"
 EVENT="$2"
 SUB_EVENT="$3"
 
-guest=win11
 logfile="/tmp/qemu_hooks.log"
 
 info() {
@@ -16,9 +15,14 @@ info() {
 }
 
 info "[QEMU_HOOK_BEGIN] guest=$GUEST_NAME event=$EVENT sub_event=$SUB_EVENT"
-info "[QEMU_HOOK_USER] user=$(whoami) id=$(id -u) group=$(id -g) groups=$(id -G)"
 
-if [[ "$GUEST_NAME" == "$guest" && "$EVENT" == "prepare" && "$SUB_EVENT" == "begin" ]]; then
+gpu_passthru=0
+if [[ "$GUEST_NAME" =~ pt$ ]]; then
+  gpu_passthru=1
+fi
+
+if [[ $gpu_passthru == 1 && "$EVENT" == "prepare" && "$SUB_EVENT" == "begin" ]]; then
+  info "Starting GPU Passthrough Preparation"
   # Stop display manager
   systemctl stop display-manager.service
   ## Uncomment the following line if you use GDM
@@ -63,7 +67,9 @@ if [[ "$GUEST_NAME" == "$guest" && "$EVENT" == "prepare" && "$SUB_EVENT" == "beg
   info "VFIO Kernel Module Loaded"
 fi
 
-if [[ "$GUEST_NAME" == "$guest" && "$EVENT" == "release" && "$SUB_EVENT" == "end" ]]; then
+if [[ $gpu_passthru == 1 && "$EVENT" == "release" && "$SUB_EVENT" == "end" ]]; then
+  info "Starting GPU Passthrough Release"
+
   # Re-Bind GPU to Nvidia Driver
   info "Stopping VFIO Kernel Module"
   virsh nodedev-reattach pci_0000_01_00_3
