@@ -31,8 +31,14 @@ if [[ -n "$proxy" ]]; then
   echo "Using proxy: $proxy"
 fi
 
-boot_device="${device}p1"
-root_device="${device}p2"
+if [[ "$device" =~ [0-9]$ ]]; then
+  boot_device="${device}p1"
+  root_device="${device}p2"
+else
+  boot_device="${device}1"
+  root_device="${device}2"
+fi
+
 
 # ==== Partitioning the disk ====
 # dos partition table for BIOS systems
