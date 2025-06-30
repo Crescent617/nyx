@@ -19,7 +19,7 @@ in
     hardware.graphics.enable = true;
     hardware.nvidia = {
       modesetting.enable = true;
-      open = false;
+      open = true;
       nvidiaSettings = true;
     };
 
@@ -33,6 +33,7 @@ in
           fcitx5-gtk
           fcitx5-configtool # 图形配置工具
         ];
+        waylandFrontend = true;
       };
     };
 
@@ -80,8 +81,7 @@ in
 
       vscode
       wechat
-      vivaldi
-      # feishu # use web version instead
+      vlc
     ];
   };
 }

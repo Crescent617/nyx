@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# NOTE: make sure kernel version is not 6.12.35!!! (https://www.reddit.com/r/VFIO/comments/1lm0n84/kernel_61235_amdgpu_rip)
+#
 # This script handles GPU passthrough preparation and release events for QEMU virtual machines.
 # It is triggered by QEMU hooks and performs tasks such as stopping the display manager,
 # unbinding the GPU from the host system, and loading the VFIO kernel module for passthrough.
