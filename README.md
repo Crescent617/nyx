@@ -57,6 +57,26 @@ nixos-install --option substituters "https://mirrors.tuna.tsinghua.edu.cn/nix-ch
 
 ---
 
+## 脚本说明
+本项目包含的若干脚本为开发和环境配置提供了支持，以下为具体说明：
+
+### 1. `script/qemu_hooks.tmpl.sh`
+- 描述：用于处理 QEMU 虚拟机的 GPU 直通准备和释放事件。
+- 用法：
+  - 可以作为单 GPU 直通脚本的一部分，在 Nix 配置中被引用。
+
+### 2. `script/nixos-easy-intall.sh`
+- 描述：一个简单的脚本，用于快速安装 NixOS 并进行基本配置。
+- 提示：适用于快速初始化环境。
+
+### 3. `after_init.sh`
+- 描述：一个辅助脚本，用于设置环境。
+- 注意：需要以常规用户身份运行，而非 root。
+
+这些脚本将协助用户更轻松地进行系统配置和虚拟机管理。
+
+---
+
 ## 相关链接
 - [NixOS 官方文档](https://nixos.org/manual/nixos/stable/)
 - [国内镜像资源](https://mirrors.tuna.tsinghua.edu.cn/nix-channels/)
