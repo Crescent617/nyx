@@ -37,6 +37,12 @@
       busybox
     ];
 
+    programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryPackage = pkgs.pinentry-curses; # TUI pinentry
+    };
+
     programs.neovim.enable = true;
 
     services.udisks2.enable = lib.mkDefault true;
