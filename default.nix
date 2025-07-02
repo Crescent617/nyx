@@ -17,6 +17,7 @@
 
     environment.sessionVariables = {
       EDITOR = "nvim";
+      NIXPKGS_ALLOW_UNFREE = "1";
     };
 
     environment.systemPackages = with pkgs; [
@@ -26,6 +27,7 @@
       git
       tmux
       clang
+      file
       nodejs
       python3
       gnumake

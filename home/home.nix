@@ -82,6 +82,7 @@
 
     # Development Tools
     k9s
+    gitRepo
 
     # Lang
     rustup
@@ -148,6 +149,7 @@
       };
       initContent = ''
         command -v motd.sh &>/dev/null && motd.sh
+        source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
       '';
     };
     atuin.enable = true;
