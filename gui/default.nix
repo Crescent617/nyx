@@ -3,7 +3,10 @@
 let cfg = config.nyx.gui;
 in
 {
+  imports = [ ./virt.nix ];
+
   config = lib.mkIf cfg.enable {
+
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
     };

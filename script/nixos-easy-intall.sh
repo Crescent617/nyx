@@ -102,24 +102,7 @@ basic_config=$(cat <<EOF
     curl
     clang
     gnumake
-    # virt-manager # Uncomment if you want to use virt-manager
   ];
-
-  # boot.kernelParams = [
-  #   "intel_iommu=on"
-  #   "iommu=pt"
-  # ];
-  # boot.kernelModules = with config.boot.kernelModules; [
-  #   "vfio-pci"
-  #   "vfio_iommu_type1"
-  #   "vfio"
-  #   "vfio_virqfd"
-  # ];
-  # virtualisation.libvirtd.enable = true;
-  # virtualisation.libvirtd.qemu.swtpm.enable = true; # Enable TPM support for VMs
-  # virtualisation.libvirtd.hooks.qemu = {
-  #   "hooks.sh" = pkgs.writeShellScript "hooks.sh" (builtins.readFile ./nyx/script/qemu_hooks.tmpl.sh); # single gpu pass-thru
-  # };
 }
 EOF)
 echo "$basic_config" | tee /mnt/etc/nixos/base.nix

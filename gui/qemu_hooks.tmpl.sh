@@ -27,7 +27,7 @@ pci_devices=(
   "pci_0000_01_00_3" # USB Controller
 )
 
-logfile="/tmp/qemu_hooks.log"
+logfile="/tmp/qemu-hooks-$(date +'%Y-%m-%d').log"
 
 # ==== Args ====
 GUEST_NAME="$1"
