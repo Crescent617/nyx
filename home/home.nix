@@ -133,6 +133,8 @@
         ypull = "yadm pull";
         ylog = "yadm log --oneline --graph --decorate --all";
         lazyyadm = "lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME";
+
+        proxy-toggle = "source proxy-toggle.sh";
       };
       defaultKeymap = "emacs";
       oh-my-zsh = {
@@ -152,6 +154,7 @@
         source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
       '';
     };
+    fzf.enable = true;
     atuin.enable = true;
     starship.enable = true;
     zoxide.enable = true;

@@ -15,6 +15,7 @@
       "kernel.sysrq" = 1;
     };
     nix.optimise.automatic = true;
+
     systemd.tmpfiles.rules = [
       "d /tmp 1777 root root 10d" # Clean /tmp every 10 days
     ];

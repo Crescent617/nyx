@@ -81,7 +81,9 @@ in
       wlsunset # 夜间模式
       zed-editor
       localsend
+      postman
 
+      vivaldi
       vscode
       wechat
       vlc
