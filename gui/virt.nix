@@ -15,6 +15,7 @@ in
 
     environment.systemPackages = with pkgs; [
       virt-manager
+      libguestfs-with-appliance # mount vm disk image
     ];
 
     virtualisation.libvirtd.enable = true;

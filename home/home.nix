@@ -44,6 +44,7 @@
     yazi # A command-line tool for managing and navigating your filesystem
     television # like fzf but for your terminal
     clipse # A command-line tool for managing clipboard history
+    lnav
 
     # System Tools
     duf # Disk Usage/Free Utility
@@ -58,6 +59,7 @@
     procs # A replacement for 'ps' written in Rust
     bat # A cat clone with wings
     lsd # A modern replacement for 'ls'
+    nvtopPackages.full
 
     # Network & Web Tools
     speedtest-go # A command-line tool to test internet speed
