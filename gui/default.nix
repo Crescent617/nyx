@@ -71,6 +71,7 @@ in
       mako # 通知管理器
       noti # 通知发送器
 
+      nvtopPackages.full
       pavucontrol # PulseAudio gui音量控制
       pamixer # PulseAudio 命令行控制音量（volume 模块用）
 

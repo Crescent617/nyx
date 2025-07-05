@@ -59,7 +59,6 @@
     procs # A replacement for 'ps' written in Rust
     bat # A cat clone with wings
     lsd # A modern replacement for 'ls'
-    nvtopPackages.full
 
     # Network & Web Tools
     speedtest-go # A command-line tool to test internet speed
