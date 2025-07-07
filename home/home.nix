@@ -135,6 +135,7 @@
         lazyyadm = "lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME";
 
         proxy-toggle = "source proxy-toggle.sh";
+        gwtsw = "source gwtsw.sh";
       };
       defaultKeymap = "emacs";
       oh-my-zsh = {
