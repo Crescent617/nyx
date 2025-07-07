@@ -16,7 +16,6 @@
     yq-go # A lightweight and portable command-line YAML processor
     atuin # A shell history assistant that helps you find and reuse commands
     boxes # A command-line tool for creating ASCII art boxes around text
-    direnv # A shell extension that loads environment variables from .env files
     tree-sitter # A CLI for parsing and analyzing source code
     choose # A command-line tool for making choices
     pay-respects # A tool to correct your previous console command
@@ -147,7 +146,6 @@
           "fancy-ctrl-z"
           "tmux"
           "zsh-interactive-cd"
-          "direnv"
         ];
       };
       initContent = ''
@@ -171,5 +169,9 @@
       };
     };
     pay-respects.enable = true;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
   };
 }

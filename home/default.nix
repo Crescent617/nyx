@@ -8,16 +8,7 @@ in
     (import "${home-manager}/nixos")
   ];
 
-  options = {
-    nyx.userName = lib.mkOption {
-      type = lib.types.str;
-      description = "The name of the user to create.";
-    };
-    nyx.stateVersion = lib.mkOption {
-      type = lib.types.str;
-      description = "The state version of the home-manager configuration.";
-    };
-  };
+  options = { };
 
   config = {
     # zsh configuration

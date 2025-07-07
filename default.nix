@@ -8,6 +8,14 @@
 
   options = {
     nyx.gui.enable = lib.mkEnableOption "Enable nyx GUI configuration";
+    nyx.userName = lib.mkOption {
+      type = lib.types.str;
+      description = "The name of the user to create.";
+    };
+    nyx.stateVersion = lib.mkOption {
+      type = lib.types.str;
+      description = "The state version of the home-manager configuration.";
+    };
   };
 
   config = {

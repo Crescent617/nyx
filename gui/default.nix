@@ -1,6 +1,7 @@
 { config, pkgs, lib, font, ... }:
 
-let cfg = config.nyx.gui;
+let
+  cfg = config.nyx.gui;
 in
 {
   imports = [ ./virt.nix ];
@@ -15,7 +16,16 @@ in
     services.xserver.videoDrivers = [ "nvidia" ];
 
     # services.displayManager.ly.enable = true;
-    services.xserver.displayManager.gdm.enable = true;
+    # services.xserver.displayManager.gdm.enable = true;
+    services.greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session --remember --theme 'border=magenta'";
+        };
+      };
+    };
+
     programs.niri.enable = true; # 窗口管理器
 
     nixpkgs.config.allowUnfree = true;

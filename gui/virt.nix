@@ -20,8 +20,6 @@ in
 
     virtualisation.libvirtd.enable = true;
     virtualisation.libvirtd.qemu.swtpm.enable = true; # Enable TPM support for VMs
-    virtualisation.libvirtd.hooks.qemu = {
-      "hooks.sh" = pkgs.writeShellScript "hooks.sh" (builtins.readFile ./qemu_hooks.tmpl.sh);
-    };
+    virtualisation.libvirtd.hooks.qemu."hooks.sh" = pkgs.writeShellScript "hooks.sh" (builtins.readFile ./qemu_hooks.tmpl.sh);
   };
 }
