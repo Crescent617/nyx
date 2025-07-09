@@ -86,6 +86,7 @@ in
     # Development Tools
     k9s
     gitRepo
+    process-compose
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
 
     # Nix
