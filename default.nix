@@ -72,5 +72,11 @@
 
     networking.firewall.allowedTCPPorts = [ 53317 ]; # localsend use 53317 port
     networking.firewall.allowedUDPPorts = [ 53317 ];
+
+    nixpkgs.config.packageOverrides = pkgs: {
+      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
+        inherit pkgs;
+      };
+    };
   };
 }

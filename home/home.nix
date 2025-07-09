@@ -1,5 +1,7 @@
 { config, pkgs, fonts, lib, ... }:
-
+let
+  inherit (pkgs.stdenv.hostPlatform) isLinux;
+in
 {
   home.packages = with pkgs; [
     # Terminal Utilities
@@ -26,6 +28,7 @@
     yadm
     just # A handy way to save and run project-specific commands
     ast-grep # A command-line tool for parsing and analyzing source code with AST
+    zip
 
     # Git Tools
     lazygit
@@ -83,6 +86,11 @@
     # Development Tools
     k9s
     gitRepo
+    # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
+
+    # Nix
+    nix-search-cli
+    nix-search-tv
 
     # Lang
     rustup
@@ -133,6 +141,7 @@
         ypull = "yadm pull";
         ylog = "yadm log --oneline --graph --decorate --all";
         lazyyadm = "lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME";
+        ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}'";
 
         proxy-toggle = "source proxy-toggle.sh";
         gwtsw = "source gwtsw.sh";
