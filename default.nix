@@ -77,6 +77,11 @@
       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
         inherit pkgs;
       };
+      unstable = import
+        (builtins.fetchTarball { url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz"; })
+        {
+          system = builtins.currentSystem;
+        };
     };
   };
 }

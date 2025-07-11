@@ -1,6 +1,7 @@
 { config, pkgs, fonts, lib, ... }:
 let
   inherit (pkgs.stdenv.hostPlatform) isLinux;
+  preferUnstable = name: if pkgs ? unstable then pkgs.unstable."${name}" else pkgs."${name}";
 in
 {
   home.packages = with pkgs; [
@@ -77,7 +78,6 @@ in
     # Document & Content Tools
     zk # A CLI for Zettelkasten note taking
     glow # Render markdown on the CLI, with pizzazz!
-    goose-cli # AI cli agent
     chafa # Image-to-text converter supporting ANSI, ASCII and HTML
 
     # Media
@@ -87,7 +87,13 @@ in
     k9s
     gitRepo
     process-compose
+    pnpm
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
+
+    # AI Tools
+    aider-chat # AI chat agent
+    claude-code # A command-line interface for Claude AI
+    (preferUnstable "goose-cli")
 
     # Nix
     nix-search-cli
