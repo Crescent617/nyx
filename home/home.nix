@@ -92,7 +92,6 @@ in
 
     # AI Tools
     aider-chat # AI chat agent
-    claude-code # A command-line interface for Claude AI
     (preferUnstable "goose-cli")
 
     # Nix
