@@ -93,6 +93,7 @@ in
     # AI Tools
     aider-chat # AI chat agent
     (preferUnstable "goose-cli")
+    (preferUnstable "claude-code")
 
     # Nix
     nix-search-cli

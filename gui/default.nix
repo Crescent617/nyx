@@ -49,6 +49,12 @@ in
         waylandFrontend = true;
       };
     };
+    xdg.mime = {
+      enable = true;
+      defaultApplications = {
+        "inode/directory" = "thunar.desktop";
+      };
+    };
 
     # 安装中文字体
     fonts.packages = with pkgs; [
@@ -64,6 +70,8 @@ in
 
     programs.firefox.enable = true;
 
+    programs.thunar.enable = true;
+    services.gvfs.enable = true; # 支持自动挂载、缩略图等
     # Audio
     services.pipewire = {
       enable = true;
