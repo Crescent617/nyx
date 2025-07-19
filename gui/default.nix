@@ -102,6 +102,7 @@ in
       localsend
       postman
 
+      zen-browser
       vivaldi
       vscode
       wechat
