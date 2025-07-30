@@ -93,6 +93,7 @@ in
     # AI Tools
     (preferUnstable "goose-cli")
     (preferUnstable "claude-code")
+    nur.repos.charmbracelet.crush
 
     # Nix
     nix-search-cli
@@ -101,6 +102,7 @@ in
     # Lang
     rustup
     go
+    golangci-lint # A Go linter aggregator
   ];
 
   home.sessionVariables = {
@@ -115,6 +117,7 @@ in
     UV_DEFAULT_INDEX = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple";
     ZK_NOTEBOOK_DIR = "$HOME/notes";
     GOOSE_DISABLE_KEYRING = 1;
+    CGO_ENABLED = 1;
   };
 
   home.sessionPath = [
@@ -151,6 +154,7 @@ in
 
         proxy-toggle = "source proxy-toggle.sh";
         gwtsw = "source gwtsw.sh";
+        claude-yolo = " claude --dangerously-skip-permissions";
       };
       defaultKeymap = "emacs";
       oh-my-zsh = {

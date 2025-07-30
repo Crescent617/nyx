@@ -4,6 +4,7 @@
   imports = [
     ./home
     ./gui
+    ./services
   ];
 
   options = {
@@ -40,6 +41,7 @@
       git
       tmux
       clang
+      gcc
       file
       nodejs
       python3
