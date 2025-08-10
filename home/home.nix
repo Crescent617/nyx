@@ -30,6 +30,7 @@ in
     just # A handy way to save and run project-specific commands
     ast-grep # A command-line tool for parsing and analyzing source code with AST
     zip
+    croc # A tool for sending files and folders securely and easily
 
     # Git Tools
     lazygit
@@ -88,6 +89,7 @@ in
     gitRepo
     process-compose
     pnpm
+    moon
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
 
     # AI Tools
@@ -160,10 +162,11 @@ in
       oh-my-zsh = {
         enable = true;
         plugins = [
+          "fancy-ctrl-z"
           "git"
           "gitignore" # gi command to generate .gitignore
+          "kubectl"
           "sudo"
-          "fancy-ctrl-z"
           "tmux"
           "zsh-interactive-cd"
         ];

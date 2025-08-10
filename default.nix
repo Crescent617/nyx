@@ -52,6 +52,8 @@
       inetutils # for ping, traceroute, etc.
       pciutils
       busybox
+      kind # Kubernetes in Docker
+      kubectl
     ];
 
     programs.gnupg.agent = {
@@ -68,7 +70,8 @@
     services.tailscale.enable = true;
 
     virtualisation.podman.enable = lib.mkDefault true;
-
+    virtualisation.podman.dockerSocket.enable = true; # Enable Docker socket for Podman
+    virtualisation.podman.dockerCompat = true;
     # nix-ld: Nix-based dynamic linker
     programs.nix-ld.enable = lib.mkDefault true;
 

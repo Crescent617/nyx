@@ -69,8 +69,8 @@ in
     ];
 
     programs.firefox.enable = true;
-
     programs.thunar.enable = true;
+
     services.gvfs.enable = true; # 支持自动挂载、缩略图等
     # Audio
     services.pipewire = {
@@ -107,6 +107,8 @@ in
       vscode
       wechat
       vlc
+
+      libreoffice
     ];
   };
 }
