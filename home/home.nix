@@ -35,6 +35,7 @@ in
     # Git Tools
     lazygit
     lazydocker
+    git-lfs
     delta # A syntax-highlighter for git and diff output
     git-open
     gh # GitHub CLI
@@ -75,6 +76,7 @@ in
     rustscan # A fast, simple and powerful network scanner
     aria2 # A download utility for HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink
     tshark # capture and analyze network packets
+    grpcurl # A command-line tool for making gRPC requests
 
     # Document & Content Tools
     zk # A CLI for Zettelkasten note taking
