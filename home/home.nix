@@ -37,7 +37,7 @@ in
     lazydocker
     delta # A syntax-highlighter for git and diff output
     git-lfs
-    git-extras
+    (preferUnstable "git-extras")
     gh # GitHub CLI
     fzf-git-sh # fzf git shortcuts
 
