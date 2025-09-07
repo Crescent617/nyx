@@ -35,9 +35,9 @@ in
     # Git Tools
     lazygit
     lazydocker
-    git-lfs
     delta # A syntax-highlighter for git and diff output
-    git-open
+    git-lfs
+    git-extras
     gh # GitHub CLI
     fzf-git-sh # fzf git shortcuts
 
@@ -77,6 +77,8 @@ in
     aria2 # A download utility for HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink
     tshark # capture and analyze network packets
     grpcurl # A command-line tool for making gRPC requests
+    proxychains-ng # A tool for redirecting network connections through a proxy server
+    tcpdump # A command-line packet analyzer
 
     # Document & Content Tools
     zk # A CLI for Zettelkasten note taking
@@ -106,7 +108,6 @@ in
     # Lang
     rustup
     go
-    golangci-lint # A Go linter aggregator
   ];
 
   home.sessionVariables = {
@@ -142,7 +143,6 @@ in
         lazypodman =
           "DOCKER_HOST=unix:///run/user/1000/podman/podman.sock lazydocker";
         lg = "lazygit";
-        gmt = "go mod tidy";
         icat = "kitty +icat";
         t = "todo.sh";
         # yadm: a dotfile manager for git
@@ -166,11 +166,13 @@ in
         plugins = [
           "fancy-ctrl-z"
           "git"
+          "git-extras"
           "gitignore" # gi command to generate .gitignore
+          "golang"
+          "helm"
           "kubectl"
           "sudo"
           "tmux"
-          "zsh-interactive-cd"
         ];
       };
       initContent = ''

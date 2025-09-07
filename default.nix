@@ -54,6 +54,7 @@
       busybox
       kind # Kubernetes in Docker
       kubectl
+      kubernetes-helm # Helm for Kubernetes
     ];
 
     programs.gnupg.agent = {
