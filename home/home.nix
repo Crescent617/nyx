@@ -38,6 +38,7 @@ in
     delta # A syntax-highlighter for git and diff output
     git-lfs
     (preferUnstable "git-extras")
+    git-open
     gh # GitHub CLI
     fzf-git-sh # fzf git shortcuts
 
