@@ -158,8 +158,11 @@ in
         ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}'";
 
         proxy-toggle = "source proxy-toggle.sh";
-        gwtsw = "source gwtsw.sh";
         claude-yolo = " claude --dangerously-skip-permissions";
+
+        # git
+        gwtsw = "source gwtsw.sh";
+        grbmb = "git rebase -i --autosquash $(git merge-base $(git_main_branch) HEAD)";
       };
       defaultKeymap = "emacs";
       oh-my-zsh = {
