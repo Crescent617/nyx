@@ -39,6 +39,7 @@ in
     git-lfs
     (preferUnstable "git-extras")
     git-open
+    tig # A command-line tool for browsing git repositories
     gh # GitHub CLI
     fzf-git-sh # fzf git shortcuts
 
