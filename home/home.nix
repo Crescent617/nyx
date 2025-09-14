@@ -96,6 +96,7 @@ in
     process-compose
     pnpm
     moon
+    bun # A fast all-in-one JavaScript runtime
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
 
     # AI Tools
