@@ -110,6 +110,9 @@ in
 
       libreoffice
       feishu
+      dbeaver-bin
+
+      obs-studio # 屏幕录制
     ];
   };
 }

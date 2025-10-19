@@ -55,6 +55,7 @@
       kind # Kubernetes in Docker
       kubectl
       kubernetes-helm # Helm for Kubernetes
+      postgresql
     ];
 
     programs.gnupg.agent = {

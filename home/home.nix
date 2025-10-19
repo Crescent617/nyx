@@ -24,13 +24,13 @@ in
     pay-respects # A tool to correct your previous console command
     asciinema # A tool for recording and sharing terminal sessions
     watchexec # A tool for watching files and executing commands when they change
-    earthly # Like Dockerfile and Makefile had a baby.
     miniserve # A tiny web server for static files
     yadm
     just # A handy way to save and run project-specific commands
     ast-grep # A command-line tool for parsing and analyzing source code with AST
     zip
     croc # A tool for sending files and folders securely and easily
+    appimage-run # A tool for running AppImage files
 
     # Git Tools
     lazygit
@@ -92,12 +92,14 @@ in
 
     # Development Tools
     k9s
-    gitRepo
     process-compose
     pnpm
     bun # A fast all-in-one JavaScript runtime
-    # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
+    grpcui
+    earthly # Like Dockerfile and Makefile had a baby.
+    cloudflared
 
+    # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
     # AI Tools
     (preferUnstable "goose-cli")
     (preferUnstable "claude-code")
@@ -108,8 +110,8 @@ in
     nix-search-tv
 
     # Lang
-    rustup
     go
+    rustup
   ];
 
   home.sessionVariables = {
@@ -131,6 +133,7 @@ in
     "$HOME/.local/bin"
     "$HOME/my-busybox/bin"
     "$HOME/go/bin"
+    "$HOME/.cargo/bin"
   ];
 
   programs = {
