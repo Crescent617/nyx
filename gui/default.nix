@@ -88,6 +88,7 @@ in
       ghostty
       mako # 通知管理器
       noti # 通知发送器
+      appimage-run # A tool for running AppImage files
 
       nvtopPackages.full
       pavucontrol # PulseAudio gui音量控制

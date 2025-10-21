@@ -30,7 +30,6 @@ in
     ast-grep # A command-line tool for parsing and analyzing source code with AST
     zip
     croc # A tool for sending files and folders securely and easily
-    appimage-run # A tool for running AppImage files
 
     # Git Tools
     lazygit

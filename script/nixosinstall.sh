@@ -80,6 +80,13 @@ basic_config=$(cat <<EOF
      initialPassword = "pw123"; # Set a default password
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+  boot.loader.grub.configurationLimit = 5;
+
   nix.settings.experimental-features = "nix-command flakes";
   nix.settings.substituters = [
     "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
