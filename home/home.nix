@@ -67,7 +67,6 @@ in
     lsd # A modern replacement for 'ls'
 
     # Network & Web Tools
-    speedtest-go # A command-line tool to test internet speed
     dogdns
     whois
     pup # HTML parsing tool
@@ -95,8 +94,6 @@ in
     pnpm
     bun # A fast all-in-one JavaScript runtime
     grpcui
-    earthly # Like Dockerfile and Makefile had a baby.
-    cloudflared
 
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
     # AI Tools
