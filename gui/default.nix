@@ -34,6 +34,7 @@ in
       modesetting.enable = true;
       open = true;
       nvidiaSettings = true;
+      powerManagement.enable = true; # 修复suspend/hibernate后黑屏问题
     };
 
     i18n.extraLocales = [ "zh_CN.UTF-8/UTF-8" ];
