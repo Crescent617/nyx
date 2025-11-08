@@ -2,6 +2,7 @@
 
 let
   cfg = config.nyx.gui;
+  preferUnstable = name: if pkgs ? unstable then pkgs.unstable."${name}" else pkgs."${name}";
 in
 {
   imports = [ ./virt.nix ];
@@ -86,7 +87,7 @@ in
       clipse # 剪贴板管理器
       fuzzel # 启动器
       kitty
-      ghostty
+      (preferUnstable "ghostty")
       mako # 通知管理器
       noti # 通知发送器
       appimage-run # A tool for running AppImage files
@@ -100,7 +101,7 @@ in
       swaybg # 背景设置
       wl-clipboard # 用于在 Wayland 上复制粘贴
       wlsunset # 夜间模式
-      zed-editor
+      (preferUnstable "zed-editor")
       localsend
       postman
 
