@@ -111,6 +111,7 @@ in
     # Lang
     go
     rustup
+    (preferUnstable "zig")
   ];
 
   home.sessionVariables = {
