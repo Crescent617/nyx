@@ -77,6 +77,7 @@ in
     tshark # capture and analyze network packets
     grpcurl # A command-line tool for making gRPC requests
     tcpdump # A command-line packet analyzer
+    socat
 
     # Document & Content Tools
     zk # A CLI for Zettelkasten note taking
@@ -103,6 +104,7 @@ in
     nur.repos.charmbracelet.crush
 
     # Nix
+    nix-init # 
     nix-search-cli
     nix-search-tv
 
@@ -110,6 +112,9 @@ in
     go
     rustup
     (preferUnstable "zig")
+
+    # misc
+    pokeget-rs # A command-line Pokémon card collector and manager
   ];
 
   home.sessionVariables = {

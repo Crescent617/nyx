@@ -70,6 +70,11 @@ basic_config=$(cat <<EOF
 { config, pkgs, lib, ... }:
 {
   boot.loader.grub.device = "${device}"; # or "nodev" for efi only
+
+  # docker cross build support
+  # boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  # boot.binfmt.preferStaticEmulators = true; # Make it work with Docker
+
   time.timeZone = "Asia/Shanghai";
   users.users.${username} = {
      isNormalUser = true;
