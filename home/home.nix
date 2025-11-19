@@ -9,7 +9,6 @@ in
     unzip
     htop
     btop
-    neovim
     starship # The minimal, blazing-fast, and infinitely customizable prompt for any shell!
     todo-txt-cli
     gomi # A command-line trash can for Linux
@@ -140,6 +139,9 @@ in
   ];
 
   programs = {
+    neovim = {
+      enable = true;
+    };
     zsh = {
       enable = true;
       autosuggestion.enable = true;
