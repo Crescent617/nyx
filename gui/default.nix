@@ -22,7 +22,7 @@ in
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd niri-session --remember --theme 'border=cyan'";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session --remember --theme 'border=cyan'";
         };
       };
     };
@@ -44,9 +44,9 @@ in
       type = "fcitx5";
       fcitx5 = {
         addons = with pkgs; [
-          fcitx5-chinese-addons
           fcitx5-gtk
-          fcitx5-configtool # 图形配置工具
+          qt6Packages.fcitx5-chinese-addons
+          qt6Packages.fcitx5-configtool # 图形配置工具
         ];
         waylandFrontend = true;
       };
@@ -112,10 +112,11 @@ in
       vlc
 
       libreoffice
-      feishu
+      (preferUnstable "feishu")
       dbeaver-bin
 
       obs-studio # 屏幕录制
+      godot
     ];
   };
 }

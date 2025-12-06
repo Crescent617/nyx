@@ -57,6 +57,7 @@
       kubectl
       kubernetes-helm # Helm for Kubernetes
       postgresql
+      cacert
     ];
 
     programs.gnupg.agent = {
@@ -88,7 +89,7 @@
       unstable = import
         (builtins.fetchTarball { url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz"; })
         {
-          system = builtins.currentSystem;
+          inherit (pkgs.stdenv.hostPlatform) system;
           config.allowUnfree = true;
         };
       zen-browser = (import (builtins.fetchTarball "https://github.com/youwen5/zen-browser-flake/archive/master.tar.gz") {

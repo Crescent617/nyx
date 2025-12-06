@@ -58,7 +58,7 @@
       unstable = import
         (builtins.fetchTarball { url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz"; })
         {
-          system = builtins.currentSystem;
+          inherit (pkgs.stdenv.hostPlatform) system;
         };
     };
   };
