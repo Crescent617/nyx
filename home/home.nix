@@ -19,7 +19,6 @@ in
     atuin # A shell history assistant that helps you find and reuse commands
     boxes # A command-line tool for creating ASCII art boxes around text
     tree-sitter # A CLI for parsing and analyzing source code
-    choose # A command-line tool for making choices
     pay-respects # A tool to correct your previous console command
     asciinema # A tool for recording and sharing terminal sessions
     watchexec # A tool for watching files and executing commands when they change
@@ -34,7 +33,6 @@ in
 
     # Git Tools
     lazygit
-    lazydocker
     delta # A syntax-highlighter for git and diff output
     git-lfs
     (preferUnstable "git-extras")
@@ -42,6 +40,10 @@ in
     tig # A command-line tool for browsing git repositories
     gh # GitHub CLI
     fzf-git-sh # fzf git shortcuts
+
+    # docker
+    lazydocker
+    ctop
 
     # Search & Navigation
     fzf
@@ -77,6 +79,7 @@ in
     grpcurl # A command-line tool for making gRPC requests
     tcpdump # A command-line packet analyzer
     socat
+    netcat
     gost # A simple, fast and secure tunnel for TCP/UDP/HTTP/SOCKS5/SSH/WebSocket
 
     # Document & Content Tools

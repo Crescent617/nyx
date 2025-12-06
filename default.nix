@@ -91,7 +91,7 @@
           system = builtins.currentSystem;
           config.allowUnfree = true;
         };
-      zen-browser = (import (builtins.fetchTarball "https://github.com/youwen5/zen-browser-flake/archive/0d330fb25536564d1d70bb202579affd2291a776.tar.gz") {
+      zen-browser = (import (builtins.fetchTarball "https://github.com/youwen5/zen-browser-flake/archive/master.tar.gz") {
         inherit pkgs;
       }).default;
     };
