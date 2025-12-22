@@ -3,9 +3,11 @@ let
   inherit (pkgs.stdenv.hostPlatform) isLinux;
   preferUnstable = name: if pkgs ? unstable then pkgs.unstable."${name}" else pkgs."${name}";
   # nix-prefetch-url --unpack <url> can show sha256
-  starsheepRepo = builtins.fetchTarball {
-    url = "https://github.com/Crescent617/starsheep/archive/master.tar.gz";
-    sha256 = "1kxcwp5cgp2r66xc7zhrx9kcsbyn2ffhdvd5kkn2c352c70j5cv7";
+  starsheepRepo = pkgs.fetchFromGitHub {
+    owner = "Crescent617";
+    repo = "starsheep";
+    rev = "d5da085accc2404137cc5f5aebe08f2d772e956e";
+    sha256 = "sha256-k5IVEnkyVSplH0CGjIM9ZAFD/EtTw5T+dcnYde89Djg=";
   };
   starsheepPkg = pkgs.callPackage "${starsheepRepo}/default.nix" { };
 in
