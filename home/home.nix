@@ -2,6 +2,12 @@
 let
   inherit (pkgs.stdenv.hostPlatform) isLinux;
   preferUnstable = name: if pkgs ? unstable then pkgs.unstable."${name}" else pkgs."${name}";
+  # nix-prefetch-url --unpack <url> can show sha256
+  starsheepRepo = builtins.fetchTarball {
+    url = "https://github.com/Crescent617/starsheep/archive/master.tar.gz";
+    sha256 = "1kxcwp5cgp2r66xc7zhrx9kcsbyn2ffhdvd5kkn2c352c70j5cv7";
+  };
+  starsheepPkg = pkgs.callPackage "${starsheepRepo}/default.nix" { };
 in
 {
   home.packages = with pkgs; [
@@ -119,6 +125,7 @@ in
 
     # misc
     pokeget-rs # A command-line Pokémon card collector and manager
+    starsheepPkg
   ];
 
   home.sessionVariables = {
@@ -196,11 +203,16 @@ in
       initContent = ''
         command -v motd.sh &>/dev/null && motd.sh
         source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
+        command -v starsheep &>/dev/null && eval "$(starsheep init --shell zsh)"
+        # fallback to starship, if last command fail
+        if [ $? -ne 0 ]; then
+          eval "$(starship init zsh)"
+        fi
       '';
     };
     fzf.enable = true;
     atuin.enable = true;
-    starship.enable = true;
+    # starship.enable = true;
     zoxide.enable = true;
     yazi = {
       enable = true;
