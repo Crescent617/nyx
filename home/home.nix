@@ -6,8 +6,9 @@ let
   starsheepRepo = pkgs.fetchFromGitHub {
     owner = "Crescent617";
     repo = "starsheep";
-    rev = "7b1fe9582360133155d13742129c6cbfbb3fc4ac";
-    sha256 = "sha256-+J+0l+UyDeqfMMxYhn8ETERiIeR0tkrH96uIvVUEOZs=";
+    rev = "026b0dfd9e7cde3546b12d104368469a2ccafee8";
+    # sha256 = lib.fakeSha256;
+    sha256 = "sha256-TRFB4pgt3wMBEnZA5cYDwnqJeQKNsUEZ/OBX1KrN5PA=";
   };
   starsheepPkg = pkgs.callPackage "${starsheepRepo}/default.nix" { };
 in
@@ -205,7 +206,7 @@ in
       initContent = ''
         command -v motd.sh &>/dev/null && motd.sh
         source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
-        command -v starsheep &>/dev/null && eval "$(starsheep init --shell zsh)"
+        command -v starsheep &>/dev/null && eval "$(starsheep init zsh)"
         # fallback to starship, if last command fail
         if [ $? -ne 0 ]; then
           eval "$(starship init zsh)"

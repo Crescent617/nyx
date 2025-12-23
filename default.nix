@@ -67,6 +67,7 @@
     };
 
     programs.neovim.enable = true;
+    programs.fuse.userAllowOther = true;
 
     services.udisks2.enable = lib.mkDefault true;
     services.openssh.enable = lib.mkDefault true;
