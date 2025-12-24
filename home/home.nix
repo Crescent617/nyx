@@ -6,9 +6,9 @@ let
   starsheepRepo = pkgs.fetchFromGitHub {
     owner = "Crescent617";
     repo = "starsheep";
-    rev = "389847f1949943050f212aefa7ad76c747f7295c";
+    rev = "main";
     # sha256 = lib.fakeSha256;
-    sha256 = "sha256-mA/F8kRaLUbKqTYrnbLsoSeMzMp/G3XAfTWzWjK/2kU=";
+    sha256 = "sha256-2MLPjqCBxhyg2sdo5Y1sVeDYdT2FTFTisRA687YJ8mo=";
   };
   starsheepPkg = pkgs.callPackage "${starsheepRepo}/default.nix" { };
 in
