@@ -46,7 +46,7 @@
     ];
 
     programs.neovim.enable = true;
-
+    programs.fuse.userAllowOther = true;
     services.openssh.enable = lib.mkDefault true;
 
     # nix-ld: Nix-based dynamic linker
