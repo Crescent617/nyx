@@ -117,6 +117,7 @@ in
 
       obs-studio # 屏幕录制
       godot
+      unityhub
     ];
   };
 }

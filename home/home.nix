@@ -8,7 +8,7 @@ let
     repo = "starsheep";
     rev = "main";
     # sha256 = lib.fakeSha256;
-    sha256 = "sha256-2MLPjqCBxhyg2sdo5Y1sVeDYdT2FTFTisRA687YJ8mo=";
+    sha256 = "sha256-LJ7LUQheCnCCKG2IwzeDVeQjex5UM/A3JLy9m8K/Mlg=";
   };
   starsheepPkg = pkgs.callPackage "${starsheepRepo}/default.nix" { };
 in
