@@ -6,9 +6,8 @@ let
   starsheepRepo = pkgs.fetchFromGitHub {
     owner = "Crescent617";
     repo = "starsheep";
-    rev = "main";
-    # sha256 = lib.fakeSha256;
-    sha256 = "sha256-IClO1pTzQurgh/jAnUqKgz7Z72hf32YMTU3o/nuGXhs=";
+    rev = "5ed2d49998534a6b1e1787c240c0fd45baaa8c22";
+    hash = "sha256-1TmK8KaQvhPanBy9Ki/1+SBEqwO+G088ueIECDqZokQ=";
   };
   starsheepPkg = pkgs.callPackage "${starsheepRepo}/default.nix" { };
 in
@@ -117,9 +116,10 @@ in
     nur.repos.charmbracelet.crush
 
     # Nix
-    nix-init # 
+    nix-init # A command-line tool to initialize Nix projects
     nix-search-cli
     nix-search-tv
+    nix-prefetch-github # A command-line tool to fetch and display information about GitHub repositories for Nix packages
 
     # Lang
     (preferUnstable "go")
