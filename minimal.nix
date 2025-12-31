@@ -60,6 +60,7 @@
         {
           inherit (pkgs.stdenv.hostPlatform) system;
         };
+      starsheep = (builtins.getFlake "github:Crescent617/starsheep").packages.${pkgs.system}.default;
     };
   };
 }

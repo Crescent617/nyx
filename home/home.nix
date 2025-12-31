@@ -2,14 +2,6 @@
 let
   inherit (pkgs.stdenv.hostPlatform) isLinux;
   preferUnstable = name: if pkgs ? unstable then pkgs.unstable."${name}" else pkgs."${name}";
-  # nix-prefetch-url --unpack <url> can show sha256
-  starsheepRepo = pkgs.fetchFromGitHub {
-    owner = "Crescent617";
-    repo = "starsheep";
-    rev = "5ed2d49998534a6b1e1787c240c0fd45baaa8c22";
-    hash = "sha256-1TmK8KaQvhPanBy9Ki/1+SBEqwO+G088ueIECDqZokQ=";
-  };
-  starsheepPkg = pkgs.callPackage "${starsheepRepo}/default.nix" { };
 in
 {
   home.packages = with pkgs; [
@@ -128,7 +120,7 @@ in
 
     # misc
     pokeget-rs # A command-line Pokémon card collector and manager
-    starsheepPkg
+    starsheep
   ];
 
   home.sessionVariables = {
