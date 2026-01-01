@@ -220,7 +220,7 @@ in
         ];
       };
     };
-    pay-respects.enable = true;
+    # pay-respects.enable = true; # like fuck command
     direnv = {
       enable = true;
       nix-direnv.enable = true;
