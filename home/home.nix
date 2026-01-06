@@ -27,6 +27,7 @@ in
     (preferUnstable "just") # A handy way to save and run project-specific commands
     ast-grep # A command-line tool for parsing and analyzing source code with AST
     zip
+    p7zip
     croc # A tool for sending files and folders securely and easily
     tmux
     (preferUnstable "zellij") # tmux-like written in rust
@@ -52,7 +53,7 @@ in
     yazi # A command-line tool for managing and navigating your filesystem
     television # like fzf but for your terminal
     clipse # A command-line tool for managing clipboard history
-    lnav
+    lnav # A log file navigator
 
     # System Tools
     duf # Disk Usage/Free Utility
@@ -121,6 +122,7 @@ in
     # misc
     pokeget-rs # A command-line Pokémon card collector and manager
     starsheep
+    duckdb # An in-process SQL OLAP database management system
   ];
 
   home.sessionVariables = {

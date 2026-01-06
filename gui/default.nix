@@ -115,9 +115,12 @@ in
       (preferUnstable "feishu")
       dbeaver-bin
 
+      thunderbird
       obs-studio # 屏幕录制
       godot
       unityhub
+
+      nur.repos.xddxdd.baidunetdisk
     ];
   };
 }
