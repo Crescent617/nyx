@@ -58,6 +58,7 @@
       kubernetes-helm # Helm for Kubernetes
       postgresql
       cacert
+      podman-compose
     ];
 
     programs.gnupg.agent = {
