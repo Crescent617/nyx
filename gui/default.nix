@@ -2,6 +2,7 @@
 
 let
   cfg = config.nyx.gui;
+  userName = config.nyx.userName;
   preferUnstable = name: if pkgs ? unstable then pkgs.unstable."${name}" else pkgs."${name}";
 in
 {
@@ -21,6 +22,10 @@ in
     services.greetd = {
       enable = true;
       settings = {
+        initial_session = {
+          command = "niri-session";
+          user = userName;
+        };
         default_session = {
           command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session --remember --theme 'border=cyan'";
         };
@@ -73,6 +78,17 @@ in
     programs.firefox.enable = true;
     programs.thunar.enable = true;
 
+    services.sunshine = {
+      enable = true;
+      autoStart = true;
+      capSysAdmin = true; # 如果你使用 Wayland，这通常是必须的
+      openFirewall = true; # 自动在防火墙中打开 47984-48010 等端口
+    };
+    # 2. 强制 udev 规则 (这是修复 sunshine Permission Denied 的核心)
+    services.udev.extraRules = ''
+      KERNEL=="uinput", MODE="0660", GROUP="input", OPTIONS+="static_node=uinput"
+    '';
+
     services.gvfs.enable = true; # 支持自动挂载、缩略图等
     # Audio
     services.pipewire = {
@@ -119,6 +135,7 @@ in
       obs-studio # 屏幕录制
       godot
       unityhub
+      remmina
 
       nur.repos.xddxdd.baidunetdisk
     ];

@@ -123,6 +123,7 @@ in
     pokeget-rs # A command-line Pokémon card collector and manager
     starsheep
     duckdb # An in-process SQL OLAP database management system
+    xan # A command-line application for processing csv
   ];
 
   home.sessionVariables = {

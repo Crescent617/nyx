@@ -13,7 +13,10 @@ in
   config = {
     # zsh configuration
     programs.zsh.enable = lib.mkDefault true;
-    users.users."${cfg.userName}".shell = pkgs.zsh;
+    users.users."${cfg.userName}" = {
+      extraGroups = [ "input" "video" ];
+      shell = pkgs.zsh;
+    };
 
     # Home Manager configuration
     home-manager.useUserPackages = true;
