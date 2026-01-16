@@ -77,6 +77,7 @@ in
     rustscan # A fast, simple and powerful network scanner
     aria2 # A download utility for HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink
     tshark # capture and analyze network packets
+    termshark # terminal-based version of Wireshark
     grpcurl # A command-line tool for making gRPC requests
     tcpdump # A command-line packet analyzer
     socat
@@ -166,19 +167,10 @@ in
         icat = "kitty +icat";
         t = "todo.sh";
         # yadm: a dotfile manager for git
-        yss = "yadm status";
-        yadd = "yadm add";
-        ycmsg = "yadm commit -m";
-        ydca = "yadm diff --cached";
-        ypush = "yadm push";
-        ypull = "yadm pull";
-        ylog = "yadm log --oneline --graph --decorate --all";
         lazyyadm = "lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME";
         ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}'";
-
         proxy-toggle = "source proxy-toggle.sh";
         claude-yolo = " claude --dangerously-skip-permissions";
-
         # git
         gwtsw = "source gwtsw.sh";
         grbmb = "git rebase -i --autosquash $(git merge-base $(git_main_branch) HEAD)";
