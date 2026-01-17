@@ -193,10 +193,18 @@ in
       initContent = ''
         command -v motd.sh &>/dev/null && motd.sh
         source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
+
+        # Starship or Starsheep prompt
         command -v starsheep &>/dev/null && eval "$(starsheep init zsh)"
-        # fallback to starship, if last command fail
         if [ $? -ne 0 ]; then
           eval "$(starship init zsh)"
+        fi
+
+        # Load .env file if exists
+        if [ -f "$HOME/.env" ]; then
+            set -a
+            source "$HOME/.env"
+            set +a
         fi
       '';
     };
