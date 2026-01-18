@@ -1,18 +1,11 @@
 { config, pkgs, lib, ... }:
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz";
   cfg = config.nyx;
 in
 {
-  imports = [
-    (import "${home-manager}/nixos")
-  ];
-
   options = { };
 
   config = {
-    # zsh configuration
-    programs.zsh.enable = lib.mkDefault true;
     users.users."${cfg.userName}" = {
       extraGroups = [ "input" "video" ];
       shell = pkgs.zsh;

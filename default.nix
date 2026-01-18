@@ -83,21 +83,5 @@
 
     networking.firewall.allowedTCPPorts = [ 53317 ]; # localsend use 53317 port
     networking.firewall.allowedUDPPorts = [ 53317 ];
-
-    nixpkgs.config.packageOverrides = pkgs: {
-      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
-        inherit pkgs;
-      };
-      unstable = import
-        (builtins.fetchTarball { url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz"; })
-        {
-          inherit (pkgs.stdenv.hostPlatform) system;
-          config.allowUnfree = true;
-        };
-      zen-browser = (import (builtins.fetchTarball "https://github.com/youwen5/zen-browser-flake/archive/master.tar.gz") {
-        inherit pkgs;
-      }).default;
-      starsheep = (builtins.getFlake "github:Crescent617/starsheep").packages.${pkgs.system}.default;
-    };
   };
 }
