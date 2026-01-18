@@ -19,7 +19,6 @@ in
     atuin # A shell history assistant that helps you find and reuse commands
     boxes # A command-line tool for creating ASCII art boxes around text
     tree-sitter # A CLI for parsing and analyzing source code
-    pay-respects # A tool to correct your previous console command
     asciinema # A tool for recording and sharing terminal sessions
     watchexec # A tool for watching files and executing commands when they change
     miniserve # A tiny web server for static files
@@ -100,7 +99,6 @@ in
     bun # A fast all-in-one JavaScript runtime
     grpcui
     hey # http performance benchmarking tool
-    ghz # A gRPC benchmarking and load testing tool
     cargo-autoinherit
 
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
@@ -110,10 +108,8 @@ in
     nur.repos.charmbracelet.crush
 
     # Nix
-    nix-init # A command-line tool to initialize Nix projects
     nix-search-cli
     nix-search-tv
-    nix-prefetch-github # A command-line tool to fetch and display information about GitHub repositories for Nix packages
 
     # Lang
     (preferUnstable "go")
@@ -121,7 +117,7 @@ in
     (preferUnstable "zig")
 
     # misc
-    pokeget-rs # A command-line Pokémon card collector and manager
+    # pokeget-rs # A command-line Pokémon card collector and manager
     starsheep
     duckdb # An in-process SQL OLAP database management system
     xan # A command-line application for processing csv
