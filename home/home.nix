@@ -105,6 +105,7 @@ in
     # AI Tools
     (preferUnstable "goose-cli")
     (preferUnstable "claude-code")
+    (preferUnstable "claude-code-acp")
     nur.repos.charmbracelet.crush
 
     # Nix
