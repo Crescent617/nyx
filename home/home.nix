@@ -32,6 +32,7 @@ in
     (preferUnstable "zellij") # tmux-like written in rust
 
     # Git Tools
+    git
     lazygit
     delta # A syntax-highlighter for git and diff output
     git-lfs
