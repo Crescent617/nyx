@@ -107,6 +107,7 @@ in
       mako # 通知管理器
       noti # 通知发送器
       appimage-run # A tool for running AppImage files
+      vulkan-tools # Vulkan command-line utilities
 
       nvtopPackages.full
       pavucontrol # PulseAudio gui音量控制
