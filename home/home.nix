@@ -104,8 +104,8 @@ in
 
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
     # AI Tools
-    (preferUnstable "goose-cli")
     (preferUnstable "claude-code")
+    (preferUnstable "opencode")
     (preferUnstable "claude-code-acp")
     (preferUnstable "gemini-cli")
     nur.repos.charmbracelet.crush
