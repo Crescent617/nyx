@@ -176,7 +176,6 @@ in
       oh-my-zsh = {
         enable = true;
         plugins = [
-          "docker"
           "fancy-ctrl-z"
           "git"
           "git-extras"
