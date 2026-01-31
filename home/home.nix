@@ -108,7 +108,6 @@ in
     (preferUnstable "opencode")
     (preferUnstable "claude-code-acp")
     (preferUnstable "gemini-cli")
-    nur.repos.charmbracelet.crush
 
     # Nix
     nix-search-cli
@@ -177,6 +176,7 @@ in
       oh-my-zsh = {
         enable = true;
         plugins = [
+          "docker"
           "fancy-ctrl-z"
           "git"
           "git-extras"
