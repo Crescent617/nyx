@@ -59,6 +59,7 @@
       postgresql
       cacert
       podman-compose
+      redis
     ];
 
     programs.gnupg.agent = {

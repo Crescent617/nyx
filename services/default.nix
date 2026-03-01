@@ -20,5 +20,6 @@ in
         };
       };
     };
+    services.envfs.enable = lib.mkDefault true;
   };
 }

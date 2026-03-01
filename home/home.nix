@@ -104,10 +104,10 @@ in
 
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
     # AI Tools
-    (preferUnstable "claude-code")
     (preferUnstable "opencode")
-    (preferUnstable "claude-code-acp")
     (preferUnstable "gemini-cli")
+    (preferUnstable "claude-code")
+    nur.repos.charmbracelet.crush
 
     # Nix
     nix-search-cli
