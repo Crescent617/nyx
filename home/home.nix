@@ -30,6 +30,7 @@ in
     croc # A tool for sending files and folders securely and easily
     tmux
     (preferUnstable "zellij") # tmux-like written in rust
+    (preferUnstable "neovim")
 
     # Git Tools
     git
@@ -101,12 +102,13 @@ in
     grpcui
     hey # http performance benchmarking tool
     cargo-autoinherit
+    sqlite
 
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
     # AI Tools
     (preferUnstable "opencode")
     (preferUnstable "gemini-cli")
-    (preferUnstable "claude-code")
+    # (preferUnstable "claude-code")
     nur.repos.charmbracelet.crush
 
     # Nix
@@ -147,9 +149,6 @@ in
   ];
 
   programs = {
-    neovim = {
-      enable = true;
-    };
     zsh = {
       enable = true;
       autosuggestion.enable = true;

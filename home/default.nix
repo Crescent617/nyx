@@ -14,7 +14,7 @@ in
     # zsh configuration
     programs.zsh.enable = lib.mkDefault true;
     users.users."${cfg.userName}" = {
-      extraGroups = [ "input" "video" ];
+      extraGroups = [ "input" "video" "docker" ];
       shell = pkgs.zsh;
     };
 

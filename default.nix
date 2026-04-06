@@ -68,7 +68,7 @@
       pinentryPackage = pkgs.pinentry-curses; # TUI pinentry
     };
 
-    programs.neovim.enable = true;
+    # programs.neovim.enable = true; # Neovim is already enabled in home.nix, no need to enable it here again
     programs.fuse.userAllowOther = true;
 
     services.udisks2.enable = lib.mkDefault true;
@@ -76,9 +76,11 @@
     services.avahi.enable = lib.mkDefault true;
     services.tailscale.enable = true;
 
-    virtualisation.podman.enable = lib.mkDefault true;
-    virtualisation.podman.dockerSocket.enable = true; # Enable Docker socket for Podman
-    virtualisation.podman.dockerCompat = true;
+    virtualisation.docker.enable = lib.mkDefault true;
+    # virtualisation.podman.enable = lib.mkDefault true;
+    # virtualisation.podman.dockerSocket.enable = true; # Enable Docker socket for Podman
+    # virtualisation.podman.dockerCompat = true;
+
     # nix-ld: Nix-based dynamic linker
     programs.nix-ld.enable = lib.mkDefault true;
 

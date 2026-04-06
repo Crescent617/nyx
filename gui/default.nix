@@ -122,6 +122,7 @@ in
       localsend
       postman
 
+      cherry-studio
       zen-browser
       vivaldi
       vscode
