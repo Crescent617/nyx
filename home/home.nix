@@ -55,6 +55,7 @@ in
     television # like fzf but for your terminal
     clipse # A command-line tool for managing clipboard history
     lnav # A log file navigator
+    xan # A csv-process cli
 
     # System Tools
     duf # Disk Usage/Free Utility
@@ -101,7 +102,8 @@ in
     bun # A fast all-in-one JavaScript runtime
     grpcui
     hey # http performance benchmarking tool
-    cargo-autoinherit
+    cargo-edit # A cargo subcommand to manage dependencies from the command line
+    cargo-autoinherit # A cargo subcommand to automatically inherit dependencies from other Cargo.toml files
     sqlite
 
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
