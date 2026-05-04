@@ -105,6 +105,7 @@ in
     cargo-edit # A cargo subcommand to manage dependencies from the command line
     cargo-autoinherit # A cargo subcommand to automatically inherit dependencies from other Cargo.toml files
     sqlite
+    (preferUnstable "usql") # A universal command-line interface for SQL databases, with autocompletion and syntax highlighting
 
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
     # Nix
