@@ -31,7 +31,7 @@ in
     tmux
     (preferUnstable "zellij") # tmux-like written in rust
     (preferUnstable "neovim")
-    (preferUnstable "python")
+    (preferUnstable "python3")
     (preferUnstable "nodejs")
 
     # Git Tools
