@@ -31,6 +31,8 @@ in
     tmux
     (preferUnstable "zellij") # tmux-like written in rust
     (preferUnstable "neovim")
+    (preferUnstable "python")
+    (preferUnstable "nodejs")
 
     # Git Tools
     git
@@ -70,7 +72,6 @@ in
     bat # A cat clone with wings
 
     # Network & Web Tools
-    dogdns
     whois
     pup # HTML parsing tool
     httpie # A user-friendly command-line HTTP client for the API era
@@ -106,6 +107,7 @@ in
     cargo-autoinherit # A cargo subcommand to automatically inherit dependencies from other Cargo.toml files
     sqlite
     (preferUnstable "usql") # A universal command-line interface for SQL databases, with autocompletion and syntax highlighting
+    (preferUnstable "protobuf")
 
     # devenv # A tool for managing development environments 不太 UNIX 哲学，功能过于复杂，暂时不使用
     # Nix
