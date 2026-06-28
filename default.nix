@@ -70,6 +70,7 @@
 
     # programs.neovim.enable = true; # Neovim is already enabled in home.nix, no need to enable it here again
     programs.fuse.userAllowOther = true;
+    programs.mosh.enable = true;
 
     services.udisks2.enable = lib.mkDefault true;
     services.openssh.enable = lib.mkDefault true;

@@ -126,7 +126,7 @@ in
       zen-browser
       vivaldi
       vscode
-      wechat
+      (preferUnstable "wechat")
       vlc
 
       libreoffice
