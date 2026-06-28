@@ -101,6 +101,7 @@
         inherit pkgs;
       }).default;
       starsheep = (builtins.getFlake "github:Crescent617/starsheep").packages.${pkgs.system}.default;
+      yomi-app = (builtins.getFlake "github:Crescent617/yomi").packages.${pkgs.system}.yomi-gui;
     };
   };
 }

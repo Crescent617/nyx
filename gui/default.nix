@@ -140,6 +140,7 @@ in
       remmina
 
       nur.repos.xddxdd.baidunetdisk
+      yomi-app
     ];
   };
 }
