@@ -1,4 +1,4 @@
-{ config, pkgs, lib, font, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   cfg = config.nyx.gui;
