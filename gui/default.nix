@@ -139,7 +139,7 @@ in
       unityhub
       remmina
       # (preferUnstable "nomachine-client") # 暂时移除：官方下架了 9.5.7 安装包，等 nixpkgs 更新后再加回
-      anydesk
+      moonlight-qt # Moonlight 客户端，配合 Sunshine 串流
 
       nur.repos.xddxdd.baidunetdisk
       yomi-app
