@@ -122,7 +122,7 @@ in
       localsend
       postman
 
-      cherry-studio
+      # cherry-studio # 暂时移除：依赖的 electron-40 已 EOL，等升级后再加回
       zen-browser
       vivaldi
       vscode
@@ -138,6 +138,7 @@ in
       godot
       unityhub
       remmina
+      (preferUnstable "nomachine-client")
 
       nur.repos.xddxdd.baidunetdisk
       yomi-app

@@ -51,16 +51,5 @@
 
     # nix-ld: Nix-based dynamic linker
     programs.nix-ld.enable = lib.mkDefault true;
-    nixpkgs.config.packageOverrides = pkgs: {
-      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/main.tar.gz") {
-        inherit pkgs;
-      };
-      unstable = import
-        (builtins.fetchTarball { url = "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz"; })
-        {
-          inherit (pkgs.stdenv.hostPlatform) system;
-        };
-      starsheep = (builtins.getFlake "github:Crescent617/starsheep").packages.${pkgs.system}.default;
-    };
   };
 }

@@ -209,6 +209,7 @@ in
     zoxide.enable = true;
     yazi = {
       enable = true;
+      shellWrapperName = "yy"; # keep legacy name (home.stateVersion < 26.05)
       plugins = {
         mount = pkgs.yaziPlugins.mount;
       };
