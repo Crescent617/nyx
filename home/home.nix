@@ -165,6 +165,7 @@ in
         lazyyadm = "lazygit --git-dir=$HOME/.local/share/yadm/repo.git --work-tree=$HOME";
         ns = "nix-search-tv print | fzf --preview 'nix-search-tv preview {}'";
         proxy-toggle = "source proxy-toggle.sh";
+        nrs = "sudo nixos-rebuild switch --flake /etc/nixos";
         claude-yolo = " claude --dangerously-skip-permissions";
         # git
         gwtsw = "source gwtsw.sh";
