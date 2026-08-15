@@ -15,7 +15,7 @@
 
     starsheep.url = "github:Crescent617/starsheep";
 
-    yomi.url = "github:Crescent617/yomi/d3c7f7f2b69cf033534bc546cc3e85118afb9c80";
+    yomi.url = "github:Crescent617/yomi";
   };
 
   outputs =
