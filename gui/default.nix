@@ -138,7 +138,7 @@ in
       godot
       unityhub
       remmina
-      (preferUnstable "nomachine-client")
+      # (preferUnstable "nomachine-client") # 暂时移除：官方下架了 9.5.7 安装包，等 nixpkgs 更新后再加回
 
       nur.repos.xddxdd.baidunetdisk
       yomi-app
