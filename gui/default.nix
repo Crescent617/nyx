@@ -19,19 +19,8 @@ in
 
     # services.displayManager.ly.enable = true;
     # services.xserver.displayManager.gdm.enable = true;
-    services.greetd = {
-      enable = true;
-      settings = {
-        initial_session = {
-          command = "niri-session";
-          user = userName;
-        };
-        default_session = {
-          # --sessions 模式：登录时从 wayland-sessions 目录列出所有可用 WM/DE 供选择
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --sessions /run/current-system/sw/share/wayland-sessions --theme 'border=cyan'";
-        };
-      };
-    };
+    # COSMIC 官方登录界面（自动管理 greetd，会话菜单可选 niri / COSMIC）
+    services.displayManager.cosmic-greeter.enable = true;
 
     # COSMIC 桌面环境（System76，登录界面可选）
     services.desktopManager.cosmic.enable = true;
