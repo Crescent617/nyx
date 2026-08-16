@@ -27,10 +27,14 @@ in
           user = userName;
         };
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session --remember --theme 'border=cyan'";
+          # --sessions 模式：登录时从 wayland-sessions 目录列出所有可用 WM/DE 供选择
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --sessions /run/current-system/sw/share/wayland-sessions --theme 'border=cyan'";
         };
       };
     };
+
+    # COSMIC 桌面环境（System76，登录界面可选）
+    services.desktopManager.cosmic.enable = true;
 
     programs.niri.enable = true; # 窗口管理器
 
@@ -77,6 +81,9 @@ in
 
     programs.firefox.enable = true;
     programs.thunar.enable = true;
+
+    # ToDesk 远程桌面（官方模块：自动装包、创建 /var/lib/todesk、运行 todeskd 守护进程）
+    services.todesk.enable = true;
 
     services.sunshine = {
       enable = true;
