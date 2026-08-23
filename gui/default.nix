@@ -22,6 +22,12 @@ in
     # COSMIC 官方登录界面（自动管理 greetd，会话菜单可选 niri / COSMIC）
     services.displayManager.cosmic-greeter.enable = true;
 
+    # 开机自动登录 COSMIC（跳过 greeter）
+    services.displayManager.autoLogin = {
+      enable = true;
+      user = config.nyx.userName;
+    };
+
     # COSMIC 桌面环境（System76，登录界面可选）
     services.desktopManager.cosmic.enable = true;
 
